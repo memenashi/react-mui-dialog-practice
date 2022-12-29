@@ -10,7 +10,7 @@ import { FC, useCallback, useState } from "react";
 type DialogKind = "1" | "2";
 
 export const Bad: FC = () => {
-  const [kind, setKind] = useState<DialogKind | null>("1");
+  const [kind, setKind] = useState<DialogKind | null>(null);
   const handleOpenDialog1 = useCallback(() => setKind("1"), []);
   const handleOpenDialog2 = useCallback(() => setKind("2"), []);
   const handleCloseDialog = useCallback(() => setKind(null), []);

@@ -1,5 +1,5 @@
 import { Button, ButtonProps, Dialog, DialogProps } from "@mui/material";
-import { FC, PropsWithChildren, ReactNode, useCallback, useState } from "react";
+import { FC, PropsWithChildren, ReactNode, useState } from "react";
 
 interface DialogButtonProps {
   dialogContent?: ReactNode;
@@ -10,26 +10,25 @@ export const DialogButton: FC<
   DialogButtonProps & PropsWithChildren & ButtonProps
 > = ({ dialogContent, children, dialogProps, ...buttonProps }) => {
   const [open, setOpen] = useState(false);
-  const handleButtonClick = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      setOpen(true);
-      if (buttonProps.onClick) buttonProps.onClick(e);
-    },
-    [buttonProps]
-  );
-  const handleDialogClose = useCallback(
-    (event: object, reason: "backdropClick" | "escapeKeyDown") => {
-      setOpen(false);
-      if (dialogProps.onClose) dialogProps.onClose(event, reason);
-    },
-    [dialogProps]
-  );
   return (
     <>
-      <Button {...buttonProps} onClick={handleButtonClick}>
+      <Button
+        {...buttonProps}
+        onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+          setOpen(true);
+          if (buttonProps.onClick) buttonProps.onClick(e);
+        }}
+      >
         {children}
       </Button>
-      <Dialog {...dialogProps} open={open} onClose={handleDialogClose}>
+      <Dialog
+        {...dialogProps}
+        open={open}
+        onClose={(event: object, reason: "backdropClick" | "escapeKeyDown") => {
+          setOpen(false);
+          if (dialogProps.onClose) dialogProps.onClose(event, reason);
+        }}
+      >
         {dialogContent}
       </Dialog>
     </>
