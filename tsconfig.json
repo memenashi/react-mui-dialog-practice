@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "target": "ESNext",
-    "module": "ESNext",
+    "target": "ES2022",
+    "module": "ES2022",
     "outDir": "public",
     "jsx": "react-jsx",
     "moduleResolution": "Node",
