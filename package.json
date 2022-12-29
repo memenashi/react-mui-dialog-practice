@@ -1,0 +1,10 @@
+{
+  "name": "react-mui-dialog-practice",
+  "version": "1.0.0",
+  "description": "MUI Dialog practice",
+  "main": "index.js",
+  "repository": "git@github.com:memenashi/react-mui-dialog-practice.git",
+  "author": "Memenashi <shunsuke.vrml@icloud.com>",
+  "license": "MIT",
+  "private": false
+}
