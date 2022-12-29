@@ -17,8 +17,11 @@ export const App: FC = () => {
   return (
     <CenterBox>
       <Stack gap={2}>
+        Bad
         <Bad />
+        Better
         <Better />
+        Best
         <Best />
       </Stack>
     </CenterBox>
