@@ -1,6 +1,8 @@
-import { DialogContent, DialogTitle, Stack, styled } from "@mui/material";
+import { Stack, styled } from "@mui/material";
 import { FC } from "react";
-import { DialogButton } from "./DialogButton";
+import { Best } from "./best/Toolbar";
+import { Better } from "./better/Toolbar";
+import { Bad } from "./bad/Toolbar";
 
 const CenterBox = styled("div")({
   width: "100vw",
@@ -14,18 +16,10 @@ const CenterBox = styled("div")({
 export const App: FC = () => {
   return (
     <CenterBox>
-      <Stack>
-        <DialogButton
-          variant="contained"
-          dialogContent={
-            <>
-              <DialogTitle>Dialog 1</DialogTitle>
-              <DialogContent>Dialog 1</DialogContent>
-            </>
-          }
-        >
-          Dialog 1
-        </DialogButton>
+      <Stack gap={2}>
+        <Bad />
+        <Better />
+        <Best />
       </Stack>
     </CenterBox>
   );

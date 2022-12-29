@@ -13,16 +13,16 @@ export const DialogButton: FC<
   const handleButtonClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       setOpen(true);
-      if (buttonProps?.onClick) buttonProps.onClick(e);
+      if (buttonProps.onClick) buttonProps.onClick(e);
     },
-    []
+    [buttonProps]
   );
   const handleDialogClose = useCallback(
-    (event: {}, reason: "backdropClick" | "escapeKeyDown") => {
+    (event: object, reason: "backdropClick" | "escapeKeyDown") => {
       setOpen(false);
-      if (dialogProps?.onClose) dialogProps.onClose(event, reason);
+      if (dialogProps.onClose) dialogProps.onClose(event, reason);
     },
-    []
+    [dialogProps]
   );
   return (
     <>
